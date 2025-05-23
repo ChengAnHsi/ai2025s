@@ -154,7 +154,7 @@
   <!-- ------------------------------------------------>
   <div class="row hw12">
     <div class="col-md-12 twenty">
-      心得報告 105 字。心得報告 105 字。心得報告 105 字。心得報告 105 字。心得報告 105 字。心得報告 105 字。心得報告 105 字。心得報告 105 字。心得報告 105 字。心得報告 105 字。心得報告 105 字。心得報告 105 字。心得報告 105 字。心得報告 105 字。心得報告 105 字。
+      這次的作業我生成了文生圖的圖片和短影音的內容，透過給予每幀的場景變化和與其對應的提示詞，來讓人工智慧可以依據該提示詞在不同時間去改變圖片讓它串接成影片。這次和之前的作業4相比，除了多生成了一個影片，也更新了和之前不同的提示詞，更多聚焦在對於每一幀的場景需求，與之前相比更加有趣。
     </div>
   </div>
 
@@ -170,22 +170,23 @@
         </tr>
         <tr>
           <td rowspan="4" id="myTotal"></td>
-          <td><input type="checkbox" class="flipswitch" id="myCheckbox1"></td>
+          <td><input type="checkbox" class="flipswitch" id="myCheckbox1" checked></td>
           <td id='m1'>4</td>
-          <td>Simple baseline - 描述</td>
+          <td>Simple baseline - Comfy UI 環境設定完成</td>
         </tr>
         <tr>
-          <td><input type="checkbox" class="flipswitch" id="myCheckbox2"></td>
+          <td><input type="checkbox" class="flipswitch" id="myCheckbox2" checked></td>
           <td id='m2'>4</td>
-          <td>Medium baseline - 描述</td>
+          <td>Medium baseline - 生成角色的圖片</td>
         </tr>
         <tr>
-          <td><input type="checkbox" class="flipswitch" id="myCheckbox3"></td>
+          <td><input type="checkbox" class="flipswitch" id="myCheckbox3" checked></td>
           <td id='m3'>2</td>
-          <td>Strong baseline - 描述</td>
+          <td>Strong baseline - 生成完整角色動畫
+</td>
         </tr>
         <tr>
-          <td><input type="checkbox" class="flipswitch" id="myCheckbox4" checked></td>
+          <td><input type="checkbox" class="flipswitch" id="myCheckbox4"></td>
           <td id='m4'>-10</td>
           <td>沒有寫100字心得</td>
         </tr>
@@ -197,12 +198,50 @@
   <!-- ------------------------------------------------>
   <div class="row hw12 bottomrow">
     <div class="col-md-12 twenty">
-      <video id="video1" style="width:100%;max-width:100%;" controls="">
-        <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
-      </video>
+      <a href="https://civitai.com/models/46294/diffusion-brush-everything-sfw-nsfw-all-purpose-checkpoint-nuclear-diffusion-anime-hybrid">CheckPoint:Diffusion_Brush</a><br>
+      <a href="https://civitai.com/models/550585/sd-15-lora-v3-pixelized-art-intermediate-edition">Lora:  pixelized-art</a><br> 
+       <td>1.Simple baseline - Comfy UI 環境設定完成</td><br>
+       <img src="1.png"  width="800" height="200"><br>
     </div>
   </div>
-
+  <div class="row hw12 bottomrow">
+    <div class="col-md-12 twenty">
+       <td>2.Medium baseline - 生成角色的圖片</td><br>
+       <img src="2.png"  width="500" height="600"><br>
+       <td> 使用提示詞:
+         "0": "rainy city morning, trench coat, umbrella, wet pavement, passing cars",
+        "10": "rainy city morning, trench coat, umbrella, wet pavement, passing cars",
+        "20": "rainy city morning, trench coat, umbrella, wet pavement, passing cars",
+        
+        "30": "urban street, waterproof jacket, backpack, neon reflections, night rain",
+        "40": "urban street, waterproof jacket, backpack, neon reflections, night rain",
+        "50": "urban street, waterproof jacket, backpack, neon reflections, night rain",
+        
+        "60": "city alley, hooded coat, holding coffee, raindrops falling, dim streetlight",
+        "70": "city alley, hooded coat, holding coffee, raindrops falling, dim streetlight",
+        "80": "city alley, hooded coat, holding coffee, raindrops falling, dim streetlight"
+      </td>
+    </div>
+  </div>
+  <div class="row hw12 bottomrow">
+    <div class="col-md-12 twenty">
+       <td>3.Strong baseline - 生成完整角色動畫</td><br>
+       <img src="3.gif" ><br>
+       <td> 使用提示詞:
+         "0": "rainy city morning, trench coat, umbrella, wet pavement, passing cars",
+        "10": "rainy city morning, trench coat, umbrella, wet pavement, passing cars",
+        "20": "rainy city morning, trench coat, umbrella, wet pavement, passing cars",
+        
+        "30": "urban street, waterproof jacket, backpack, neon reflections, night rain",
+        "40": "urban street, waterproof jacket, backpack, neon reflections, night rain",
+        "50": "urban street, waterproof jacket, backpack, neon reflections, night rain",
+        
+        "60": "city alley, hooded coat, holding coffee, raindrops falling, dim streetlight",
+        "70": "city alley, hooded coat, holding coffee, raindrops falling, dim streetlight",
+        "80": "city alley, hooded coat, holding coffee, raindrops falling, dim streetlight"
+      </td>
+    </div>
+  </div>
   <!-- ------------------------------------------------>
 
   <!-- ------------------------------------------------>
