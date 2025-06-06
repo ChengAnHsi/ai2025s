@@ -1,0 +1,206 @@
+========== The 1-st segment of the split (505 words) ==========
+
+
+ Hi, I'm going to introduce you another interesting pattern mining approach
+
+called pattern growth  approach.  This approach is represented by an interesting
+
+algorithm called epigrowth.  Let's look at how this algorithm works.  The
+
+general idea is first we mine the frequent single items and then we partition
+
+the database  based on each such item.  Then we recursively grow frequent
+
+patterns by doing the above iteratively or recursively  for each partition
+
+database, also called conditional database.  To
+
+
+========== The 2-nd segment of the split (510 words) ==========
+
+
+facilitate efficient processing, we use a new data structure called epi tree.
+
+The whole mining can be summarized as follows.  We recursively construct and
+
+mine conditional epi trees.  Until the result epi tree is empty or until it
+
+contains only one path, the single paths  will generate all the combinations of
+
+its sub-paths, each of which is a frequent pattern.  Let's look at a simple
+
+example.  For this transaction database, it has only five transactions, each
+
+contains a set of  items.  So we can scan the
+
+
+========== The 3-rd segment of the split (512 words) ==========
+
+
+database once, find the single item frequent pattern like the following.
+
+Suppose minimum support is three, we will be able to find the following frequent
+
+single  items.  Then we can sort the frequent items based on its support
+
+frequency in descending order  like this.  Based on this, we can construct a
+
+tree by first constructing a header following this  order, then scan the
+
+database, we can construct this tree as follows.  For example, if you look at
+
+the first transaction, it's FCAMP, so we construct FCAMP
+
+
+========== The 4-th segment of the split (512 words) ==========
+
+
+with only  support as one.  Then we get FCABM, we construct this FCABM, and this
+
+part of support becomes two, this  maintains to be one.  Then we can go this
+
+one, one by one we will construct the following tree.  Then to mine this tree,
+
+we can use divide and conquer and do it recursively.  We can do it like this.
+
+So each such tree we can construct its pattern base, we call P's conditional
+
+pattern base,  M's conditional pattern base, let's look at how P's conditional
+
+pattern base is constructed.  So you can
+
+
+========== The 5-th segment of the split (508 words) ==========
+
+
+see P is the leaf of the node, you only look up, you get FCAM, the support  is
+
+two because P occurs together with this branch only twice, that's why you get
+
+FCAM  two.  Then for the same reason, you look at the other P, its CB happens
+
+only once together  with P, that's why you get CB one.  Then if you want to look
+
+at M's conditional database, the philosophy you are thinking  the patterns
+
+having M but not having P because P already been taken care by the P's
+
+conditional  pattern base.  So you look at M's
+
+
+========== The 6-th segment of the split (511 words) ==========
+
+
+conditional database, actually you also look up, you get FCA, so for this
+
+branch they occur twice, that's why you get FCA two.  For the same reason, you
+
+look at this M, you get FCAB one, so you get FCAB one.  You can do this on and
+
+on, then with this you can get into transform the prefix path  of P, you get the
+
+following.  Then the remaining task is just mine this conditional pattern base.
+
+For this conditional pattern base, we mine single item patterns, we construct
+
+this FB  tree and mine it recursively.
+
+
+========== The 7-th segment of the split (511 words) ==========
+
+
+For example, for P's conditional pattern base, you will get only C3.  The reason
+
+is F, A, M and B, they never occur more than three times, so they are out, they
+
+are not frequent, you only get three.  But for M's conditional pattern base, you
+
+can see FCA really occur three times, the  B only occur once, then you get FCA3.
+
+And B's conditional pattern base, you can see none of them actually pass the
+
+support  threshold of three, so it's empty.  So let's just look at, of course,
+
+you will get A and C's pattern
+
+
+========== The 8-th segment of the split (509 words) ==========
+
+
+base, like F3 and FC3.  Actually for the single branch, you can dump all the
+
+possible combinations there, support  all three, but we just look at in the
+
+recursive way how we can mine this pattern base.  For this pattern base, you can
+
+see, you can say for A's conditional pattern base, you  will get this, you get
+
+FC3, and for C, you get F3, you can see that's the same thing.  Then for this
+
+particular AM conditional FP tree, you mine, you just take a C, you say  C's,
+
+that means AMC or CAM, their conditional
+
+
+========== The 9-th segment of the split (510 words) ==========
+
+
+pattern base is only F3, you get this.  Then you can dump all the patterns, you
+
+know, like this.  For single branch, essentially that's the same thing, you will
+
+dump all the patterns,  like all the possible combinations, they are all three.
+
+You can see, if you get a single prefix pass, you actually can partition this
+
+into two parts,  like this part, you can mine it, and this part, you can mine
+
+it, then you can just concatenate  the pattern results.  What about this tree
+
+cannot fit in the main memory?  If
+
+
+========== The 10-th segment of the split (509 words) ==========
+
+
+it cannot fit in the memory, we can use database projection, that means we
+
+project  the database based on the patterns, based on single item set.  So then
+
+we can construct and mine this tree for each project database, so we can have
+
+parallel projection or partition projection, two different methods.  The
+
+parallel projection means for this one, you will get F4 project database and F3
+
+project  database.  For example, for this first string, you will see GH, suppose
+
+it's not frequent, only Fs  are frequent,
+
+
+========== The 11-th segment of the split (511 words) ==========
+
+
+you will get F4 project database, you get F2, F3.  Then F3 project database, you
+
+get F2, that's the one.  Then every one of these projected database is
+
+independent of the others, so you can mine  them in parallel.  But then you also
+
+can have partition projection.  The general philosophy is for each string, you
+
+only put into one place.  For example, this one contains F4, you only put F2,
+
+F3, but you don't put this F2 to F3  projected database.  When you finish mine
+
+this F4, when you do this projection, then
+
+
+========== The 12-th segment of the split (209 words) ==========
+
+
+you think this one is  related to F3, you will put this one into F3.  So that's
+
+just different choices for different partition or parallel projection.  It's
+
+just a different way of implementing it.  Thank you.
